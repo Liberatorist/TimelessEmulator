@@ -58,7 +58,7 @@ public static class Program
                     break;
             }
             List<PassiveSkill> passive_skills = DataManager.getPassiveSkills(jewel_name);
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Seeds", jewel_name);
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TimelessJewels", jewel_name);
             System.IO.Directory.CreateDirectory(path);
 
             for (uint seed=min_seed; seed<max_seed+1; seed++){
