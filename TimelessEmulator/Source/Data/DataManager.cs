@@ -44,6 +44,29 @@ public static class DataManager
         return true;
     }
 
+    public static List<PassiveSkill> getPassiveSkills(string jewel_name){
+        List<PassiveSkill> passives = new List<PassiveSkill>();
+        using (StreamWriter outputFile = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Seeds", jewel_name + "_passives.txt"))){
+            for (int i=0; i<PassiveSkills.Count; i++){
+                PassiveSkill node = PassiveSkills.ElementAt(i);
+                if (node.IsKeyStone ||
+                    node.IsJewelSocket ||
+                    node.Identifier.StartsWith("atlas") ||
+                    node.Identifier.StartsWith("royale") ||
+                    node.Identifier.Contains("mastery")
+                    ){
+                    continue;
+                }
+                if (jewel_name != "glorious_vanity" && !node.IsNotable){
+                    continue;
+                }
+                passives.Add(node);
+                outputFile.WriteLine(node.GraphIdentifier);
+            }
+        }
+        return passives;
+    }
+
     public static List<AlternatePassiveAddition> GetApplicableAlternatePassiveAdditions(PassiveSkill passiveSkill, TimelessJewel timelessJewel)
     {
         ArgumentNullException.ThrowIfNull(passiveSkill, nameof(passiveSkill));
@@ -116,6 +139,14 @@ public static class DataManager
             (q.Identifier.ToLowerInvariant() == fuzzyValue.ToLowerInvariant()) ||
             (q.Name.ToLowerInvariant() == fuzzyValue.ToLowerInvariant())));
     }
+
+    public static PassiveSkill GetPassiveSkillByGraphId(uint graphId)
+    {
+        if (PassiveSkills == null)
+            return null;
+        return PassiveSkills.FirstOrDefault(q => (q.GraphIdentifier == graphId));
+    }
+
 
     public static PassiveSkillType GetPassiveSkillType(PassiveSkill passiveSkill)
     {

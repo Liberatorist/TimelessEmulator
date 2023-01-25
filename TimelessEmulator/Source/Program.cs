@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Reflection;
 using Spectre.Console;
 using TimelessEmulator.Data;
 using TimelessEmulator.Data.Models;
@@ -19,54 +22,96 @@ public static class Program
     public static void Main(string[] arguments)
     {
         Console.Title = $"{Settings.ApplicationName} Ver. {Settings.ApplicationVersion}";
-
-        AnsiConsole.MarkupLine("Hello, [green]exile[/]!");
-        AnsiConsole.MarkupLine("Loading [green]data files[/]...");
-
         if (!DataManager.Initialize())
-            ExitWithError("Failed to initialize the [yellow]data manager[/].");
+            ExitWithError("Failed to initialize th   e [yellow]data manager[/].");
 
-        PassiveSkill passiveSkill = GetPassiveSkillFromInput();
-
-        if (passiveSkill == null)
-            ExitWithError("Failed to get the [yellow]passive skill[/] from input.");
-
-        TimelessJewel timelessJewel = GetTimelessJewelFromInput();
-
-        if (timelessJewel == null)
-            ExitWithError("Failed to get the [yellow]timeless jewel[/] from input.");
-
-        AnsiConsole.WriteLine();
-
-        AlternateTreeManager alternateTreeManager = new AlternateTreeManager(passiveSkill, timelessJewel);
-
-        bool isPassiveSkillReplaced = alternateTreeManager.IsPassiveSkillReplaced();
-
-        AnsiConsole.MarkupLine($"[green]Is Passive Skill Replaced[/]: {isPassiveSkillReplaced}");
-
-        if (isPassiveSkillReplaced)
-        {
-            AlternatePassiveSkillInformation alternatePassiveSkillInformation = alternateTreeManager.ReplacePassiveSkill();
-
-            AnsiConsole.MarkupLine($"[green]Alternate Passive Skill[/]: [yellow]{alternatePassiveSkillInformation.AlternatePassiveSkill.Name}[/] ([yellow]{alternatePassiveSkillInformation.AlternatePassiveSkill.Identifier}[/])");
-
-            for (int i = 0; i < alternatePassiveSkillInformation.AlternatePassiveSkill.StatIndices.Count; i++)
+        for (uint jewel_version = 1; jewel_version < 6; jewel_version++){
+            string jewel_name = "";
+            uint min_seed = 0;
+            uint max_seed = 0;
+            switch (jewel_version)
             {
-                uint statIndex = alternatePassiveSkillInformation.AlternatePassiveSkill.StatIndices.ElementAt(i);
-                uint statRoll = alternatePassiveSkillInformation.StatRolls.ElementAt(i).Value;
-
-                AnsiConsole.MarkupLine($"\t\tStat [yellow]{i}[/] | [yellow]{DataManager.GetStatTextByIndex(statIndex)}[/] (Identifier: [yellow]{DataManager.GetStatIdentifierByIndex(statIndex)}[/], Index: [yellow]{statIndex}[/]), Roll: [yellow]{statRoll}[/]");
+                case 1:
+                    jewel_name = "glorious_vanity";
+                    min_seed = 100;
+                    max_seed = 8000;
+                    break;
+                case 2:
+                    jewel_name = "lethal_pride";
+                    min_seed = 10000;
+                    max_seed = 18000;
+                    break;
+                case 3:
+                    jewel_name = "brutal_restraint";
+                    min_seed = 500;
+                    max_seed = 8000;
+                    break;
+                case 4:
+                    jewel_name = "militant_faith";
+                    min_seed = 2000;
+                    max_seed = 10000;
+                    break;
+                case 5:
+                    jewel_name = "elegant_hubris";
+                    min_seed = 100;
+                    max_seed = 8000;
+                    break;
             }
+            List<PassiveSkill> passive_skills = DataManager.getPassiveSkills(jewel_name);
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Seeds", jewel_name);
+            System.IO.Directory.CreateDirectory(path);
 
-            PrintAlternatePassiveAdditionInformations(alternatePassiveSkillInformation.AlternatePassiveAdditionInformations);
+            for (uint seed=min_seed; seed<max_seed+1; seed++){
+                if (seed % 100 == 0){
+                    Console.WriteLine(jewel_name + ": Seed " + seed.ToString() + " out of " + max_seed.ToString());
+                }
+                uint alt_seed = seed;
+                if (jewel_version == 5){
+                    alt_seed *= 20;
+                }
+                TimelessJewel timelessJewel = FetchTimelessJewel(alt_seed, jewel_version);
+
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(path, alt_seed.ToString() + ".csv"))){
+
+                    foreach (PassiveSkill passiveSkill in passive_skills) {
+                        string output = "";
+                        AlternateTreeManager alternateTreeManager = new AlternateTreeManager(passiveSkill, timelessJewel);
+                        if (alternateTreeManager.IsPassiveSkillReplaced())
+                        {
+                            output = "1";
+                            AlternatePassiveSkillInformation alternatePassiveSkillInformation = alternateTreeManager.ReplacePassiveSkill();
+                            for (int i = 0; i < alternatePassiveSkillInformation.AlternatePassiveSkill.StatIndices.Count; i++)
+                            {
+                                uint statIndex = alternatePassiveSkillInformation.AlternatePassiveSkill.StatIndices.ElementAt(i);
+                                uint statRoll = alternatePassiveSkillInformation.StatRolls.ElementAt(i).Value;
+                                output += "," + statIndex.ToString() + "," + statRoll.ToString();
+                            }
+                            foreach (AlternatePassiveAdditionInformation alternatePassiveAdditionInformation in alternatePassiveSkillInformation.AlternatePassiveAdditionInformations)
+                                {
+                                    for (int i = 0; i < alternatePassiveAdditionInformation.AlternatePassiveAddition.StatIndices.Count; i++)
+                                    {
+                                        uint statIndex = alternatePassiveAdditionInformation.AlternatePassiveAddition.StatIndices.ElementAt(i);
+                                        uint statRoll = alternatePassiveAdditionInformation.StatRolls.ElementAt(i).Value;
+                                        output += "," + statIndex.ToString() + "," + statRoll.ToString();
+                                    }
+                                }
+                        } else {
+                            output = "0";
+                            foreach (AlternatePassiveAdditionInformation alternatePassiveAdditionInformation in alternateTreeManager.AugmentPassiveSkill())
+                                {
+                                    for (int i = 0; i < alternatePassiveAdditionInformation.AlternatePassiveAddition.StatIndices.Count; i++)
+                                    {
+                                        uint statIndex = alternatePassiveAdditionInformation.AlternatePassiveAddition.StatIndices.ElementAt(i);
+                                        uint statRoll = alternatePassiveAdditionInformation.StatRolls.ElementAt(i).Value;
+                                        output += "," + statIndex.ToString() + "," + statRoll.ToString();
+                                    }
+                                }
+                        }
+                        outputFile.WriteLine(output);
+                    }
+                }
+            }
         }
-        else
-        {
-            IReadOnlyCollection<AlternatePassiveAdditionInformation> alternatePassiveAdditionInformations = alternateTreeManager.AugmentPassiveSkill();
-
-            PrintAlternatePassiveAdditionInformations(alternatePassiveAdditionInformations);
-        }
-
         WaitForExit();
     }
 
@@ -95,6 +140,13 @@ public static class Program
         return passiveSkill;
     }
 
+
+    private static TimelessJewel FetchTimelessJewel(uint seed, uint jewel_type){
+        AlternateTreeVersion alternateTreeVersion = DataManager.AlternateTreeVersions.First(q => (q.Index == jewel_type));
+        TimelessJewelConqueror timelessJewelConqueror = new TimelessJewelConqueror(1, 0);
+        return new TimelessJewel(alternateTreeVersion, timelessJewelConqueror, seed);
+    }
+    
     private static TimelessJewel GetTimelessJewelFromInput()
     {
         Dictionary<uint, string> timelessJewelTypes = new Dictionary<uint, string>()
@@ -112,7 +164,7 @@ public static class Program
                 1, new Dictionary<string, TimelessJewelConqueror>()
                 {
                     { "Xibaqua", new TimelessJewelConqueror(1, 0) },
-                    { "[springgreen3]Zerphi (Legacy)[/]", new TimelessJewelConqueror(2, 0) },
+                        { "[springgreen3]Zerphi (Legacy)[/]", new TimelessJewelConqueror(2, 0) },
                     { "Ahuana", new TimelessJewelConqueror(2, 1) },
                     { "Doryani", new TimelessJewelConqueror(3, 0) }
                 }
@@ -250,5 +302,4 @@ public static class Program
         PrintError(error);
         WaitForExit();
     }
-
 }
