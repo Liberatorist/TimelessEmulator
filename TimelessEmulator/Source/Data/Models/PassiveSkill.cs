@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
+
 namespace TimelessEmulator.Data.Models;
 
 public class PassiveSkill
@@ -30,6 +31,11 @@ public class PassiveSkill
     [JsonPropertyName("IsKeystone")]
     public bool IsKeyStone { get; init; }
 
+    [JsonPropertyName("MasteryGroup")]
+    public int? MasteryGroup { get; init; }
+
+    public bool IsMastery { get; init; }
+
     public PassiveSkill()
     {
         this.Index = default;
@@ -40,6 +46,12 @@ public class PassiveSkill
         this.IsJewelSocket = default;
         this.IsNotable = default;
         this.IsKeyStone = default;
+        this.MasteryGroup = default;
+        this.IsMastery = false;
+
+        if (this.MasteryGroup != null){
+            this.IsMastery = true;
+        } else {this.IsMastery = false;}
     }
 
 }

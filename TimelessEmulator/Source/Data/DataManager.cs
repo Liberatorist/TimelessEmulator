@@ -51,9 +51,9 @@ public static class DataManager
                 PassiveSkill node = PassiveSkills.ElementAt(i);
                 if (node.IsKeyStone ||
                     node.IsJewelSocket ||
+                    node.IsMastery ||
                     node.Identifier.StartsWith("atlas") ||
-                    node.Identifier.StartsWith("royale") ||
-                    node.Identifier.Contains("mastery")
+                    node.Identifier.StartsWith("royale")
                     ){
                     continue;
                 }
