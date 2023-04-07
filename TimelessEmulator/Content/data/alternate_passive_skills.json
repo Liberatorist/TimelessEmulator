@@ -8,7 +8,7 @@
       4
     ],
     "StatsKeys": [
-      9447
+      9443
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -41,7 +41,7 @@
       4
     ],
     "StatsKeys": [
-      9403
+      9399
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -74,7 +74,7 @@
       4
     ],
     "StatsKeys": [
-      12049
+      12043
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -107,7 +107,7 @@
       4
     ],
     "StatsKeys": [
-      9445
+      9441
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -345,7 +345,7 @@
       2
     ],
     "StatsKeys": [
-      2605
+      2603
     ],
     "Stat1Min": 7,
     "Stat1Max": 12,
@@ -481,7 +481,7 @@
       2
     ],
     "StatsKeys": [
-      1974
+      1973
     ],
     "Stat1Min": 7,
     "Stat1Max": 12,
@@ -1127,7 +1127,7 @@
       2
     ],
     "StatsKeys": [
-      2090
+      2089
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -1195,7 +1195,7 @@
       2
     ],
     "StatsKeys": [
-      14767
+      14757
     ],
     "Stat1Min": 2,
     "Stat1Max": 2,
@@ -1229,7 +1229,7 @@
       2
     ],
     "StatsKeys": [
-      3837
+      3835
     ],
     "Stat1Min": 2,
     "Stat1Max": 4,
@@ -1467,7 +1467,7 @@
     ],
     "StatsKeys": [
       42,
-      3106
+      3104
     ],
     "Stat1Min": 25,
     "Stat1Max": 35,
@@ -1569,7 +1569,7 @@
     ],
     "StatsKeys": [
       49,
-      3107
+      3105
     ],
     "Stat1Min": 25,
     "Stat1Max": 35,
@@ -1671,7 +1671,7 @@
     ],
     "StatsKeys": [
       56,
-      3108
+      3106
     ],
     "Stat1Min": 25,
     "Stat1Max": 35,
@@ -1739,7 +1739,7 @@
     ],
     "StatsKeys": [
       26,
-      5811
+      5808
     ],
     "Stat1Min": 25,
     "Stat1Max": 35,
@@ -1773,7 +1773,7 @@
     ],
     "StatsKeys": [
       26,
-      3105
+      3103
     ],
     "Stat1Min": 25,
     "Stat1Max": 35,
@@ -1807,7 +1807,7 @@
     ],
     "StatsKeys": [
       26,
-      9087
+      9083
     ],
     "Stat1Min": 25,
     "Stat1Max": 35,
@@ -1841,7 +1841,7 @@
     ],
     "StatsKeys": [
       63,
-      9768
+      9764
     ],
     "Stat1Min": 25,
     "Stat1Max": 35,
@@ -1875,7 +1875,7 @@
     ],
     "StatsKeys": [
       63,
-      2132
+      2131
     ],
     "Stat1Min": 25,
     "Stat1Max": 35,
@@ -1976,7 +1976,7 @@
       3
     ],
     "StatsKeys": [
-      1974,
+      1973,
       215
     ],
     "Stat1Min": 25,
@@ -2045,7 +2045,7 @@
     ],
     "StatsKeys": [
       124,
-      2693
+      2691
     ],
     "Stat1Min": 6,
     "Stat1Max": 10,
@@ -2215,7 +2215,7 @@
     ],
     "StatsKeys": [
       134,
-      8831
+      8827
     ],
     "Stat1Min": 8,
     "Stat1Max": 12,
@@ -2282,7 +2282,7 @@
       3
     ],
     "StatsKeys": [
-      2090,
+      2089,
       23
     ],
     "Stat1Min": 5,
@@ -2317,7 +2317,7 @@
     ],
     "StatsKeys": [
       620,
-      6080
+      6077
     ],
     "Stat1Min": 8,
     "Stat1Max": 10,
@@ -2350,7 +2350,7 @@
       3
     ],
     "StatsKeys": [
-      14767,
+      14757,
       141
     ],
     "Stat1Min": 6,
@@ -2384,7 +2384,7 @@
       3
     ],
     "StatsKeys": [
-      3837,
+      3835,
       844
     ],
     "Stat1Min": 7,
@@ -2419,7 +2419,7 @@
     ],
     "StatsKeys": [
       1386,
-      8898
+      8894
     ],
     "Stat1Min": 4,
     "Stat1Max": 6,
@@ -2650,7 +2650,7 @@
       4
     ],
     "StatsKeys": [
-      9690
+      9686
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2683,7 +2683,7 @@
       4
     ],
     "StatsKeys": [
-      9448
+      9444
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2716,7 +2716,7 @@
       4
     ],
     "StatsKeys": [
-      9571
+      9567
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2749,7 +2749,7 @@
       4
     ],
     "StatsKeys": [
-      11844
+      11838
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2782,7 +2782,7 @@
       4
     ],
     "StatsKeys": [
-      9624
+      9620
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2815,7 +2815,7 @@
       4
     ],
     "StatsKeys": [
-      11819
+      11813
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2848,7 +2848,7 @@
       4
     ],
     "StatsKeys": [
-      9416
+      9412
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2881,7 +2881,7 @@
       4
     ],
     "StatsKeys": [
-      9609
+      9605
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2914,7 +2914,7 @@
       4
     ],
     "StatsKeys": [
-      9446
+      9442
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2947,7 +2947,7 @@
       4
     ],
     "StatsKeys": [
-      11889
+      11883
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -2980,7 +2980,7 @@
       4
     ],
     "StatsKeys": [
-      9393
+      9389
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3013,7 +3013,7 @@
       4
     ],
     "StatsKeys": [
-      9408
+      9404
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3046,7 +3046,7 @@
       1
     ],
     "StatsKeys": [
-      9616
+      9612
     ],
     "Stat1Min": 10,
     "Stat1Max": 10,
@@ -3079,7 +3079,7 @@
       3
     ],
     "StatsKeys": [
-      9707
+      9703
     ],
     "Stat1Min": 15,
     "Stat1Max": 15,
@@ -3112,7 +3112,7 @@
       3
     ],
     "StatsKeys": [
-      9708
+      9704
     ],
     "Stat1Min": 15,
     "Stat1Max": 15,
@@ -3145,7 +3145,7 @@
       3
     ],
     "StatsKeys": [
-      9709
+      9705
     ],
     "Stat1Min": 15,
     "Stat1Max": 15,
@@ -3178,7 +3178,7 @@
       3
     ],
     "StatsKeys": [
-      9710
+      9706
     ],
     "Stat1Min": 5,
     "Stat1Max": 5,
@@ -3211,7 +3211,7 @@
       3
     ],
     "StatsKeys": [
-      9711
+      9707
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3244,7 +3244,7 @@
       3
     ],
     "StatsKeys": [
-      9712
+      9708
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3277,7 +3277,7 @@
       3
     ],
     "StatsKeys": [
-      9713
+      9709
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3310,7 +3310,7 @@
       3
     ],
     "StatsKeys": [
-      9714
+      9710
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3343,7 +3343,7 @@
       3
     ],
     "StatsKeys": [
-      9715
+      9711
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3376,7 +3376,7 @@
       3
     ],
     "StatsKeys": [
-      9716
+      9712
     ],
     "Stat1Min": 5,
     "Stat1Max": 5,
@@ -3409,7 +3409,7 @@
       3
     ],
     "StatsKeys": [
-      9717
+      9713
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3442,7 +3442,7 @@
       3
     ],
     "StatsKeys": [
-      9718
+      9714
     ],
     "Stat1Min": 10,
     "Stat1Max": 10,
@@ -3475,7 +3475,7 @@
       3
     ],
     "StatsKeys": [
-      9719
+      9715
     ],
     "Stat1Min": 10,
     "Stat1Max": 10,
@@ -3508,7 +3508,7 @@
       3
     ],
     "StatsKeys": [
-      9720
+      9716
     ],
     "Stat1Min": 10,
     "Stat1Max": 10,
@@ -3541,7 +3541,7 @@
       4
     ],
     "StatsKeys": [
-      9580
+      9576
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3574,7 +3574,7 @@
       4
     ],
     "StatsKeys": [
-      9397
+      9393
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3607,7 +3607,7 @@
       4
     ],
     "StatsKeys": [
-      9736
+      9732
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3640,7 +3640,7 @@
       4
     ],
     "StatsKeys": [
-      11820
+      11814
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3771,7 +3771,7 @@
       3
     ],
     "StatsKeys": [
-      7495
+      7491
     ],
     "Stat1Min": 1,
     "Stat1Max": 1,
@@ -3804,7 +3804,7 @@
       3
     ],
     "StatsKeys": [
-      8214
+      8210
     ],
     "Stat1Min": 8,
     "Stat1Max": 8,
@@ -3837,7 +3837,7 @@
       3
     ],
     "StatsKeys": [
-      3389
+      3387
     ],
     "Stat1Min": 10,
     "Stat1Max": 10,
@@ -4002,7 +4002,7 @@
       3
     ],
     "StatsKeys": [
-      8215
+      8211
     ],
     "Stat1Min": 4,
     "Stat1Max": 4,
@@ -4035,7 +4035,7 @@
       3
     ],
     "StatsKeys": [
-      6132
+      6129
     ],
     "Stat1Min": 10,
     "Stat1Max": 10,
@@ -4068,7 +4068,7 @@
       3
     ],
     "StatsKeys": [
-      3560
+      3558
     ],
     "Stat1Min": 30,
     "Stat1Max": 30,
@@ -4134,7 +4134,7 @@
       3
     ],
     "StatsKeys": [
-      3561
+      3559
     ],
     "Stat1Min": 30,
     "Stat1Max": 30,
@@ -4233,7 +4233,7 @@
       3
     ],
     "StatsKeys": [
-      2090
+      2089
     ],
     "Stat1Min": 8,
     "Stat1Max": 8,
@@ -4299,7 +4299,7 @@
       3
     ],
     "StatsKeys": [
-      14767
+      14757
     ],
     "Stat1Min": 12,
     "Stat1Max": 12,
@@ -4332,7 +4332,7 @@
       3
     ],
     "StatsKeys": [
-      3837
+      3835
     ],
     "Stat1Min": 12,
     "Stat1Max": 12,
@@ -4497,7 +4497,7 @@
       3
     ],
     "StatsKeys": [
-      6044
+      6041
     ],
     "Stat1Min": 80,
     "Stat1Max": 80,
@@ -4530,7 +4530,7 @@
       3
     ],
     "StatsKeys": [
-      6045
+      6042
     ],
     "Stat1Min": 80,
     "Stat1Max": 80,
@@ -4563,7 +4563,7 @@
       3
     ],
     "StatsKeys": [
-      6046
+      6043
     ],
     "Stat1Min": 80,
     "Stat1Max": 80,
@@ -4662,8 +4662,8 @@
       3
     ],
     "StatsKeys": [
-      6038,
-      9087
+      6035,
+      9083
     ],
     "Stat1Min": 50,
     "Stat1Max": 50,
@@ -4696,7 +4696,7 @@
       3
     ],
     "StatsKeys": [
-      4945
+      4943
     ],
     "Stat1Min": 80,
     "Stat1Max": 80,
