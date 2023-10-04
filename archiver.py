@@ -20,7 +20,7 @@ with zipfile.ZipFile(zip_buffer, "a",
 
     for subdir in os.listdir(os.path.join(output_dir, "TimelessJewels")):
         if subdir.endswith(".txt"):
-            zip_file.writestr(subdir, open(os.path.join(output_dir, "TimelessJewels", "stats.txt"), "rb").read())
+            zip_file.writestr(subdir, open(os.path.join(output_dir, "TimelessJewels", subdir), "rb").read())
         elif "." not in subdir:
             inner_zip_buffer = BytesIO()
             sub_path = os.path.join(output_dir, "TimelessJewels", subdir)
