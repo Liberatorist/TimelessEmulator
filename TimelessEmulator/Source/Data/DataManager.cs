@@ -46,7 +46,9 @@ public static class DataManager
 
     public static List<PassiveSkill> getPassiveSkills(string jewel_name){
         List<PassiveSkill> passives = new List<PassiveSkill>();
-        using (StreamWriter outputFile = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TimelessJewels", jewel_name + "_passives.txt"))){
+        string outputDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TimelessJewels");
+        Directory.CreateDirectory(outputDir);
+        using (StreamWriter outputFile = new StreamWriter(Path.Combine(outputDir, jewel_name + "_passives.txt"))){
             for (int i=0; i<PassiveSkills.Count; i++){
                 PassiveSkill node = PassiveSkills.ElementAt(i);
                 if (node.IsKeyStone ||

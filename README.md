@@ -4,7 +4,7 @@
 
 - Go to https://snosme.github.io/poe-dat-viewer/
 - Import the files for the current patch
-- Export data/passiveskills.dat64 and data/stats.dat64 as json and put them into Content/data (rename to passive_skills.json)
+- Export data/passiveskills.dat64 and data/stats.dat64 as json and put them into Content/data
 
 # To update the jewel data
 

@@ -4,38 +4,32 @@ import os
 import zipfile
 
 directory = os.getcwd()
-output_dir = os.path.join(directory, "TimelessEmulator", "Build", "Output", "Debug")
+input_dir = os.path.join(directory, "TimelessEmulator", "Build", "Output", "Debug")
+output_dir = os.path.join(directory, "TimelessEmulator", "Build", "Output", "TimelessJewels")
+timeless_dir = os.path.join(input_dir, "TimelessJewels")
 
-with open(os.path.join(output_dir, "data", "stats.json"), "r") as file:
+os.makedirs(timeless_dir, exist_ok=True)
+
+with open(os.path.join(input_dir, "data", "stats.json"), "r") as file:
     data = json.loads(file.read())
-    with open(os.path.join(output_dir, "TimelessJewels", "stats.txt"), "w") as file:
+    with open(os.path.join(timeless_dir, "stats.txt"), "w") as file:
         for stat in data:
             file.write(f'{stat["Id"]}\n')
 
+for entry in os.listdir(timeless_dir):
+    entry_path = os.path.join(timeless_dir, entry)
+    if not os.path.isdir(entry_path):
+        continue
 
-zip_buffer = BytesIO()
-with zipfile.ZipFile(zip_buffer, "a",
-                     zipfile.ZIP_DEFLATED, False) as zip_file:
+    zip_path = os.path.join(output_dir, f"{entry}.zip")
+    passives_name = f"{entry}_passives.txt"
+    passives_path = os.path.join(timeless_dir, passives_name)
 
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zip_file:
+        if os.path.isfile(passives_path):
+            zip_file.write(passives_path, passives_name)
 
-    for subdir in os.listdir(os.path.join(output_dir, "TimelessJewels")):
-        if subdir.endswith(".txt"):
-            zip_file.writestr(subdir, open(os.path.join(output_dir, "TimelessJewels", subdir), "rb").read())
-        elif "." not in subdir:
-            inner_zip_buffer = BytesIO()
-            sub_path = os.path.join(output_dir, "TimelessJewels", subdir)
-            with zipfile.ZipFile(inner_zip_buffer, "a",
-                     zipfile.ZIP_DEFLATED, False) as inner_zip_file:
-
-                for filename in os.listdir(sub_path):
-                    with open(os.path.join(sub_path, filename), "rb") as f:
-                        filePath = os.path.join(sub_path, filename)
-                        inner_zip_file.writestr(filename, open(filePath, "rb").read())
-            
-            zip_file.writestr(subdir + ".zip", inner_zip_buffer.getvalue())
-
-
-
-
-with open(os.path.join(directory, "TimelessEmulator", "Build", "Output", "TimelessJewels", "TimelessJewels.zip"), "wb") as file:
-    file.write(zip_buffer.getvalue())
+        for filename in os.listdir(entry_path):
+            file_path = os.path.join(entry_path, filename)
+            if os.path.isfile(file_path):
+                zip_file.write(file_path, os.path.join(entry, filename))

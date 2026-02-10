@@ -11,7 +11,7 @@ public static  class Settings
     private const string ALTERNATE_PASSIVE_ADDITIONS_FILE_NAME = "alternate_passive_additions.json";
     private const string ALTERNATE_PASSIVE_SKILLS_FILE_NAME = "alternate_passive_skills.json";
     private const string ALTERNATE_TREE_VERSIONS_FILE_NAME = "alternate_tree_versions.json";
-    private const string PASSIVE_SKILLS_FILE_NAME = "passive_skills.json";
+    private const string PASSIVE_SKILLS_FILE_NAME = "passiveskills.json";
     private const string STATS_FILE_NAME = "stats.json";
 
     public static readonly string ApplicationName = "TimelessEmulator";

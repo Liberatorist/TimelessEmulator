@@ -398,5 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Custom Modifications
-Build/
+*/Build/Intermediate/
+*/Build/Output/Debug/*
 .vscode/
